@@ -38,7 +38,7 @@ sudo systemctl restart NetworkManager.service
 
 cat /etc/resolv.conf
 
-* copy ssh key
+* copy ssh key to all nodes
 
 ssh-copy-id sa@
 
