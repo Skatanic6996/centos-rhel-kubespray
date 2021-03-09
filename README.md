@@ -2,12 +2,14 @@ what we need to do and tips.
 
 requirements:
 * disable selinux
+
 sestatus
 sudo setenforce 0
 nano /etc/selinux/config \\ SELINUX=disabled
 sudo shutdown -r now
 sestatus
 * set static network with 1-2 DNS servers \\net tips
+
 sudo nano /etc/sysconfig/network-scripts/ifcfg-eth0
 
 BOOTPROTO=none
