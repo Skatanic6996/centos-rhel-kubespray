@@ -1,0 +1,68 @@
+all:
+  hosts:
+    nazk-master01:
+      ansible_host: 192.168.1.113
+      ip: 192.168.1.113
+      acces_ip: 192.168.1.113
+    nazk-master02:
+      ansible_host: 192.168.1.115
+      ip: 192.168.1.115
+      acces_ip: 192.168.1.115
+    nazk-master03:
+      ansible_host: 192.168.1.119
+      ip: 192.168.1.119
+      acces_ip: 192.168.1.119
+    etcd-node1:
+      ansible_host: 192.168.1.110
+      ip: 192.168.1.110
+      acces_ip: 192.168.1.110
+    etcd-node2:
+      ansible_host: 192.168.1.111
+      ip: 192.168.1.111
+      acces_ip: 192.168.1.111
+    etcd-node3:
+      ansible_host: 192.168.1.112
+      ip: 192.168.1.112
+      acces_ip: 192.168.1.112
+    nazk-worker01:
+      ansible_host: 192.168.1.120
+      ip: 192.168.1.120
+      acces_ip: 192.168.1.120
+    nazk-worker02:
+      ansible_host: 192.168.1.121
+      ip: 192.168.1.121
+      acces_ip: 192.168.1.121
+    nazk-worker03:
+      ansible_host: 192.168.1.123
+      ip: 192.168.1.123
+      acces_ip: 192.168.1.123
+    nazk-worker04:
+      ansible_host: 192.168.1.124
+      ip: 192.168.1.124
+      acces_ip: 192.168.1.124
+  children:
+    kube-master:
+      hosts:
+        nazk-master01:
+        nazk-master02:
+        nazk-master03:
+    kube-node:
+      hosts:
+        nazk-worker01:
+        nazk-worker02:
+        nazk-worker03:
+        nazk-worker04:
+    etcd:
+      hosts:
+        etcd-node1:
+        etcd-node2:
+        etcd-node3:
+    k8s-cluster:
+      children:
+        kube-master:
+        kube-node:
+    calico-rr:
+      hosts: { }
+
+
+
