@@ -71,5 +71,5 @@ dnf module -y install python38
 
 * this commant do magic 
 
-ansible-playbook -i inventory/mycluster/hosts.yaml  --become --become-user=root cluster.yml --extra-vars "ansible_sudo_pass=291263" --timeout 300
+ansible-playbook -i inventory/mycluster/hosts.yaml  --become --become-user=root cluster.yml --extra-vars "ansible_sudo_pass=" --timeout 300
 
